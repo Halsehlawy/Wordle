@@ -15,7 +15,7 @@ const messageEl = document.querySelector('#msg');
 const keyboardEls = document.querySelectorAll('.key');
 const nextWordEl = document.querySelector('#next-word');
 const cheatEl = document.querySelector('#cheat')
-// Fill keyMap with letter → key element mapping
+
 keyboardEls.forEach(key => {
   const letter = key.getAttribute('data-key');
   keyMap[letter] = key;
@@ -79,7 +79,7 @@ const checkWord = () => {
   applyColors(currentRow, guess, colors);
 };
 
-// Updates grid tiles with current guess
+// Updates grid tiles with current guess text
 const updateTiles = () => {
   const rowStart = currentRow * 5;
   for (let i = 0; i < 5; i++) {
@@ -88,7 +88,7 @@ const updateTiles = () => {
   }
 };
 
-// Clears both grid and keyboard colors
+// Clears both grid text and grid colors and keyboard colors
 const clearGrid = () => {
   wordGrid = Array.from({ length: 6 }, () => Array(5).fill(''));
 
@@ -163,10 +163,17 @@ const startGame = () => {
 startGame();
 
 /*----------- Event Listeners ----------*/
-
-// Keyboard key press
+//Physical keyboard
 document.addEventListener('keydown', (e) => {
   handleKeyInput(e.key);
+});
+
+//On-screen keyboard
+keyboardEls.forEach(key => {
+  key.addEventListener('click', () => {
+    const letter = key.getAttribute('data-key');
+    handleKeyInput(letter);
+  });
 });
 
 // "Next Word" button click
