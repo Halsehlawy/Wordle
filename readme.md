@@ -20,8 +20,8 @@ A fun and responsive Wordle-style word guessing game built with **HTML, CSS, and
 ## 🔧 Developer Notes
 
 - Words are randomly picked from a 2000+ word list.
-- Key buttons light up according to guess results.
-- A hidden element (`#cheat`) in the navbar can reveal the current word.
+- Keyboard buttons light up according to guess results.
+- A hidden element (`#cheat`) in the bottom left corner that can reveal the current word.
 - Clean, modular functions make the code easy to read and extend.
 
 ---
